@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getAllUsers(Int $user_id)
+    {
+      return $this->Where('id', '<>', $user_id)->paginate(5);
+    }
 }
