@@ -20,3 +20,38 @@ header{
     flex: 0 0 19%;
     border-left: 1px solid #6C6C6C;
 }
+
+ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+#pulldawn{
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+#menu {
+    position: relative;
+}
+
+#menu a {
+    display: block;
+    line-height: 60px;
+    text-align: center;
+    background: #ddd;
+}
+
+.sub {
+    visibility: hidden;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0px;
+}
+
+#menu:hover .sub {
+    visibility: visible;
+}

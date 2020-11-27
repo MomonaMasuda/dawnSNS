@@ -32,8 +32,6 @@ Route::get('/added', 'Auth\RegisterController@added');
 //ログイン中のページ
 Route::group(['middleware' => 'auth'], function(){
 
-    // Route::resource('users', 'UsersController', ['only' => ['index', 'show', 'edit', 'update']]);
-
     Route::get('/top','PostsController@index');
 
     Route::get('/profile','UsersController@profile');
@@ -42,5 +40,7 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::get('/follow-list','PostsController@index');
     Route::get('/follower-list','PostsController@index');
+
+    Route::get('/logout','Auth\LoginController@logout');
 
 });
