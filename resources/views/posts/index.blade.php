@@ -1,6 +1,9 @@
 @extends('layouts.login')
 
 @section('content')
-<h2>機能を実装していきましょう。</h2>
+
+<form class="" action="" method="post">
+  <textarea id="" name="tweet" cols="150">何をつぶやこうか…？</textarea>
+</form>
 
 @endsection

@@ -8,6 +8,8 @@
     <title></title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/jquery-3.5.0.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -26,13 +28,12 @@
             <div id="pulldawn">
                 <div id="menu">
                     <p>{{Auth::user()->username}}さん<img src="images/dawn.png"></p>
-                <div>
-                <ul class="sub">
+                </div>
+                <ul>
                     <li><a href="/top">ホーム</a></li>
                     <li><a href="/profile">プロフィール</a></li>
                     <li><a href="/logout">ログアウト</a></li>
                 </ul>
-            </div>
         </div>
       </div>
     </header>
@@ -45,16 +46,18 @@
                 <p>{{Auth::user()->username}}さんの</p>
                 <div>
                 <p>フォロー数</p>
-                <p>〇〇名</p>
+                <p>名</p>
                 </div>
                 <p class="btn"><a href="/follow-list">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
                 <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="follower-list">フォロワーリスト</a></p>
+                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
+            <div id="user">
             <p class="btn"><a href="">ユーザー検索</a></p>
+            </div>
         </div>
     </div>
     <footer>

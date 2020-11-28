@@ -33,25 +33,50 @@ ul {
     top: 0;
 }
 
-#menu {
-    position: relative;
+ul {
+  display: none;
+  background: #fff;
 }
 
-#menu a {
-    display: block;
-    line-height: 60px;
-    text-align: center;
-    background: #ddd;
+li {
 }
 
-.sub {
-    visibility: hidden;
-    width: 100%;
-    position: absolute;
-    top: 60px;
-    left: 0px;
+li a{
+  color: #6C6C6C;
 }
 
-#menu:hover .sub {
-    visibility: visible;
+
+#menu p{
+  color: #fff;
+}
+
+.btn{
+  display: inline-block;
+  max-width: 100%;
+  text-align:center;
+  background-color: #3C4767;
+  font-size: 12px;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 8px 8px 8px;
+  border-radius: 4px;
+}
+
+.btn a{
+  color: #fff;
+}
+
+textarea{
+  width: 70%;
+}
+
+
+#confirm{
+  padding-bottom: 10%;
+  border-bottom: 0.5px solid black;
+}
+
+#user{
+  padding-top: 10%;
+  text-align: center;
 }
