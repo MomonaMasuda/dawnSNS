@@ -82,6 +82,10 @@ li a:hover{
   top: 45%;
 }
 
+#menu img{
+  border-radius: 50px; 
+}
+
 .btn{
   display: inline-block;
   max-width: 100%;
