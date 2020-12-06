@@ -27,7 +27,7 @@
         <h1><a href="/top"><img src="images/main_logo.png" ></a></h1>
             <div id="pulldawn">
                 <div id="menu">
-                    <p>{{Auth::user()->username}}さん<img src="images/dawn.png"></p>
+                    <p>{{Auth::user()->username}}さん</p><img src="images/dawn.png">
                 </div>
                 <ul>
                     <li><a href="/top">ホーム</a></li>

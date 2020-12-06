@@ -25,6 +25,8 @@ ul {
     margin: 0px;
     padding: 0px;
     list-style: none;
+    display: none;
+    background: #fff;
 }
 
 #pulldawn{
@@ -33,21 +35,51 @@ ul {
     top: 0;
 }
 
-ul {
-  display: none;
-  background: #fff;
+li{
+  text-align: center;
 }
 
-li {
+li:hover{
+  background-color: #DE563C;
 }
 
 li a{
   color: #6C6C6C;
 }
 
+li a:hover{
+  color: #fff;
+}
+
+
+#menu{
+  color: #fff;
+}
 
 #menu p{
-  color: #fff;
+  display: inline-block;
+  width: 70px;
+}
+
+#menu::after{
+  content: "";
+  position: absolute;
+  top: 70%;
+  right: 50%;
+  transition: all 0.2s ease-in-out;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-top: solid 2px #fff;
+  border-right: solid 2px #fff;
+  -webkit-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+
+#menu.open::after{
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 45%;
 }
 
 .btn{
