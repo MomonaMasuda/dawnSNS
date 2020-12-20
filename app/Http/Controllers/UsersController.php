@@ -20,4 +20,13 @@ class UsersController extends Controller
         return redirect('/login');
     }
 
+    public function index(User $user)
+    {
+        $all_users = $user->getAllUsers(auth()->user()->id);
+
+        return view('users.search', [
+            'all_users'  => $all_users
+        ]);
+    }
+
 }
