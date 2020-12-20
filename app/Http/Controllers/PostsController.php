@@ -11,5 +11,13 @@ class PostsController extends Controller
         return view('posts.index');
     }
 
+    public function followList(){
+        return view('follows.followList');
+    }
+
+    public function followerList(){
+        return view('follows.followerList');
+    }
+
 
 }

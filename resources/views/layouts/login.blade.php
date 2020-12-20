@@ -56,7 +56,7 @@
                 <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
             <div id="user">
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <p class="btn"><a href="/search">ユーザー検索</a></p>
             </div>
         </div>
     </div>

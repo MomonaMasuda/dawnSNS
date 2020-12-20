@@ -83,7 +83,7 @@ li a:hover{
 }
 
 #menu img{
-  border-radius: 50px; 
+  border-radius: 50px;
 }
 
 .btn{
@@ -104,6 +104,8 @@ li a:hover{
 
 textarea{
   width: 70%;
+  resize: none;
+  border: solid 1px #fff;
 }
 
 
@@ -115,4 +117,11 @@ textarea{
 #user{
   padding-top: 10%;
   text-align: center;
+}
+
+/* search */
+
+.username textarea{
+  border: solid 1px #6C6C6C;
+  border-radius: 4px;
 }
