@@ -43,3 +43,15 @@ a{
   display: inline-block;
   padding-top: 0;
 }
+
+.btn{
+  display: inline-block;
+  max-width: 100%;
+  text-align:center;
+  background-color: #3C4767;
+  font-size: 12px;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 8px 8px 8px;
+  border-radius: 4px;
+}
