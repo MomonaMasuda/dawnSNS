@@ -30,7 +30,7 @@ ul {
 }
 
 #pulldawn{
-    position: fixed;
+    position: absolute;
     right: 0;
     top: 0;
 }
@@ -121,7 +121,16 @@ textarea{
 
 /* index */
 
+.btn-create{
+  border: 0px;
+  width: 60px;
+  height: 60px;
+  background: url(../images/post.png) no-repeat;
+}
 
+.btn-create:hover{
+  cursor: pointer;
+}
 
 /* search */
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 class PostsController extends Controller
 {
@@ -24,10 +25,13 @@ class PostsController extends Controller
 
     public function create(Request $request)
     {
+     $user_id = Auth::id();
      $post = $request->input('newPost');
      \DB::table('posts')->insert([
-         'post' => $post
+         'user_id' => $user_id,
+         'post' => $post,
      ]);
+     $post = save();
 
      return redirect('posts.index');
     }

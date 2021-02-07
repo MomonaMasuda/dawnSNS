@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="container">
-        {!! Form::open(['url' => '/post/create']) !!}
+        {!! Form::open(['url' => 'top']) !!}
         <div class="form-group">
             {!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '何をつぶやこうか…？']) !!}
         </div>
-        <a href=""><img src="images/post.png" alt=""></a>
+        <button type="submit" class="btn-create"></button>
         {!! Form::close() !!}
     </div>
 
@@ -21,7 +21,7 @@
             @foreach ($list as $list)
             <tr>
                 <td>{{ $list->id }}</td>
-                <td>{{ $list->posts }}</td>
+                <td>{{ $list->post }}</td>
                 <td>{{ $list->created_at }}</td>
             </tr>
             @endforeach
