@@ -13,13 +13,13 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->increments('id')->autoIncrement();
-            $table->integer('user_id');
-            $table->string('post',500);
-            $table->timestamps('created_at');
-            $table->timestamps('modified_at');
-        });
+      Schema::create('posts', function (Blueprint $table) {
+          $table->increments('id',11)->autoIncrement();
+          $table->integer('user_id')->nullable();
+          $table->string('post',400)->nullable();
+          $table->timestamp('created_at')->useCurrent();
+          $table->timestamp('modified_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+      });
     }
 
     /**
