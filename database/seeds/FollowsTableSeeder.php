@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Follow;
 
-class FollowersTableSeeder extends Seeder
+class FollowsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,8 +14,8 @@ class FollowersTableSeeder extends Seeder
     {
       for ($i = 2; $i <= 10; $i++) {
           Follow::create([
-              'follow' => $i,
-              'follower' => 1,
+              'follow_id' => $i,
+              'follower_id' => 1,
               'created_at' => now()
           ]);
     }

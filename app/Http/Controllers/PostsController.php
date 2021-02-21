@@ -34,7 +34,7 @@ class PostsController extends Controller
      ]);
      $post = save();
 
-     return redirect('posts.index');
+     return redirect('posts.create');
     }
 
 }

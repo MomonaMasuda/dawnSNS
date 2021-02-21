@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
           $table->integer('user_id')->nullable();
           $table->string('post',400)->nullable();
           $table->timestamp('created_at')->useCurrent();
-          $table->timestamp('modified_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+          $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
       });
     }
 

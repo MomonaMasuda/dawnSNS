@@ -17,7 +17,7 @@ class PostsTableSeeder extends Seeder
               'user_id'    => $i,
               'post'       => 'これはテスト投稿' .$i,
               'created_at' => now(),
-              'modified_at' => now()
+              'updated_at' => now()
           ]);
       }
     }
