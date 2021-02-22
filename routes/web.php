@@ -16,7 +16,13 @@
 // });
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Route::get('/info', function () {
+//     phpinfo();
+// });
+
+
 Auth::routes();
+
 
 
 //ログアウト中のページ
