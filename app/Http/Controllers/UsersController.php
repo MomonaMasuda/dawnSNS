@@ -23,7 +23,9 @@ class UsersController extends Controller
       $users = User::all();
       // dd($users);
     return view('users.search')->with('users', $users);
+  }
 
+  public function result(Request $request){
     #キーワード受け取り
   $keyword = $request->input('keyword');
   // dd($keyword);
@@ -33,12 +35,37 @@ class UsersController extends Controller
   #もしキーワードがあったら
   if(!empty($keyword))
   {
-    $query->where('username','like','%'.$keyword.'%');
+    $users = $query->where('username','like','%'.$keyword.'%')->get();
   }
 
-  #ページネーション
-  $users = $query->get();
-  return view('users.search',compact('users','keyword','username'));
+  return view('users.result',compact('users','keyword'));
+  }
+
+  public function follow(User $users)
+    {
+        $follower = auth()->user();
+        // フォローしているか
+        $is_following = $follower->isFollowing($users->id);
+        if(!$is_following) {
+            // フォローしていなければフォローする
+            $follower->follow($users->id);
+            return (boolean) $this->follows()->where('followed_id', $user_id)->first(['id']);
+        }
+        return $this->follows()->attach($user_id);
     }
+
+    public function unfollow(User $users)
+    {
+        $follower = auth()->user();
+        // フォローしているか
+        $is_following = $follower->isFollowing($users->id);
+        if($is_following) {
+            // フォローしていればフォローを解除する
+            $follower->unfollow($users->id);
+            return (boolean) $this->followers()->where('following_id', $user_id)->first(['id']);
+        }
+        return $this->follows()->detach($user_id);
+    }
+
 
 }

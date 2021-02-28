@@ -6,6 +6,8 @@
 <button type="submit" class="btn-create"></button>
 </form>
 
+@if($users->count())
+
 <h1>ユーザー一覧</h1>
 <table class="table">
   <tr>
@@ -16,24 +18,13 @@
   <tr>
     <td>{{$user->image}}</td>
     <td>{{$user->username}}</td>
-
+    <td><a class="btn" href="">フォローする</a></td>
   </tr>
-
-@if (auth()->user()->isFollowing($users->id))
-<form action="{{ route('unfollow', ['id' => $users->id]) }}" method="POST">
-    {{ csrf_field() }}
-    {{ method_field('DELETE') }}
-
-    <button type="submit" class="btn">フォローを外す</button>
-</form>
-@else
-<form action="{{ route('follow', ['id' => $users->id]) }}" method="POST">
-    {{ csrf_field() }}
-    <button type="submit" class="btn">フォローする</button>
-</form>
-  @endif
 @endforeach
 </table>
 
+@else
+<p>見つかりませんでした。</p>
+@endif
 
 @endsection
