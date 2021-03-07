@@ -41,31 +41,33 @@ class UsersController extends Controller
   return view('users.result',compact('users','keyword'));
   }
 
-  public function follow(User $users)
+
+  public function follow(User $user)
     {
         $follower = auth()->user();
         // フォローしているか
-        $is_following = $follower->isFollowing($users->id);
+        $is_following = $follower->isFollowing($user->id);
         if(!$is_following) {
             // フォローしていなければフォローする
-            $follower->follow($users->id);
-            return (boolean) $this->follows()->where('followed_id', $user_id)->first(['id']);
+            $follower->follow($user->id);
+            return back();
         }
-        return $this->follows()->attach($user_id);
     }
 
-    public function unfollow(User $users)
+    // フォロー解除
+    public function unfollow(User $user)
     {
         $follower = auth()->user();
         // フォローしているか
-        $is_following = $follower->isFollowing($users->id);
+        $is_following = $follower->isFollowing($user->id);
         if($is_following) {
             // フォローしていればフォローを解除する
-            $follower->unfollow($users->id);
-            return (boolean) $this->followers()->where('following_id', $user_id)->first(['id']);
+            $follower->unfollow($user->id);
+            return back();
         }
-        return $this->follows()->detach($user_id);
     }
+
+
 
 
 }

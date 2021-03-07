@@ -18,7 +18,9 @@
   <tr>
     <td>{{$user->image}}</td>
     <td>{{$user->username}}</td>
-    <td><a class="btn" href="">フォローする</a></td>
+
+
+
   </tr>
 @endforeach
 </table>

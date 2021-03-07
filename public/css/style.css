@@ -138,3 +138,27 @@ textarea{
   border: solid 1px #6C6C6C;
   border-radius: 4px;
 }
+
+.btn-follow{
+  display: inline-block;
+  max-width: 100%;
+  text-align:center;
+  background-color: #7995D7;
+  font-size: 12px;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 8px 8px 8px;
+  border-radius: 4px;
+}
+
+.btn-delete{
+  display: inline-block;
+  max-width: 100%;
+  text-align:center;
+  background-color: #BA5656;
+  font-size: 12px;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 8px 8px 8px;
+  border-radius: 4px;
+}

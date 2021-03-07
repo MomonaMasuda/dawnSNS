@@ -40,4 +40,33 @@ class User extends Authenticatable
           parent::setAttribute($key, $value);
         }
     }
+
+    public function follows()
+    {
+        return $this->belongsToMany(self::class, 'follows','follower_id', 'follow_id');
+    }
+
+    public function followers()
+    {
+        return $this->belongsToMany(self::class, 'follows','follower_id', 'follow_id');
+    }
+
+
+    // フォローする
+    public function follow(Int $user_id)
+    {
+        return $this->follows()->attach($user_id);
+    }
+
+    // フォロー解除する
+    public function unfollow(Int $user_id)
+    {
+        return $this->follows()->detach($user_id);
+    }
+
+    // フォローしているか
+    public function isFollowing(Int $user_id)
+    {
+        return (boolean) $this->follows()->where('follower_id', $user_id)->first(['users.id']);
+    }
 }
