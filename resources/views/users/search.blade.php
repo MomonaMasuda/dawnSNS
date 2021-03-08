@@ -18,7 +18,7 @@
     <td>{{$user->username}}</td>
 
     <td>
-      @if (auth()->user()->isFollowing($user->id))
+      @if (Auth::user()->isFollowing($user->id))
         <form action="{{ route('unfollow', ['id' => $user->id]) }}" method="POST">
             {{ csrf_field() }}
             {{ method_field('DELETE') }}
