@@ -10,18 +10,15 @@ use App\Post;
 class PostsController extends Controller
 {
     //
+
+    public function followerList(){
+        return view('posts.followerList');
+    }
+
     public function index(){
         $list = \DB::table('posts')->get();
         // dd($list);
         return view('posts.index',['list'=>$list]);
-    }
-
-    public function followList(){
-        return view('follows.followList');
-    }
-
-    public function followerList(){
-        return view('follows.followerList');
     }
 
     public function create(Request $request)

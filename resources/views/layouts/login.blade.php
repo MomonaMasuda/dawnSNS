@@ -27,7 +27,8 @@
         <h1><a href="/top"><img src="images/main_logo.png" ></a></h1>
             <div id="pulldawn">
                 <div id="menu">
-                    <p>{{Auth::user()->username}}さん</p><img src="images/dawn.png">
+                    <p>{{Auth::user()->username}}さん</p>
+                    <img src="images/{{Auth::user()->image}}">
                 </div>
                 <ul>
                     <li><a href="/top">ホーム</a></li>
@@ -48,12 +49,12 @@
                 <p>フォロー数</p>
                 <p>名</p>
                 </div>
-                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
+                <p class="btn"><a href="/followlist">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
                 <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
+                <p class="btn"><a href="/followerlist">フォロワーリスト</a></p>
             </div>
             <div id="user">
             <p class="btn"><a href="/search">ユーザー検索</a></p>

@@ -2,5 +2,6 @@
 
 @section('content')
 
+Follow list
 
 @endsection

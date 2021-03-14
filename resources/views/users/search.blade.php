@@ -14,7 +14,7 @@
   </tr>
 @foreach($users as $user)
   <tr>
-    <td>{{$user->image}}</td>
+    <td><a><img src="images/{{$user->image}}"></a></td>
     <td>{{$user->username}}</td>
 
     <td>
