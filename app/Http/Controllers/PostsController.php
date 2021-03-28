@@ -11,6 +11,10 @@ class PostsController extends Controller
 {
     //
 
+    public function profile(){
+        return view('posts.profile');
+    }
+
     public function followerList(){
       $user_id = Auth::id();
 
@@ -29,7 +33,7 @@ class PostsController extends Controller
     ->Join('posts','posts.user_id','=','users.id')
     ->Join('follows','follows.follower_id','=','users.id')
     ->where('follows.follow_id',$user_id)
-    ->select('users.id','users.username','users.image','posts.user_id','posts.post','posts.updated_at','follows.follow_id')
+    ->select('users.id','users.username','users.image','posts.user_id','posts.post','posts.updated_at','follows.follow_id','follows.follower_id')
     ->orderBy('posts.updated_at','desc')
     ->get();
 

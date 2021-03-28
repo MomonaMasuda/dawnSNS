@@ -10,7 +10,7 @@
             </tr>
             @foreach ($icons as $icon)
             <tr>
-                <td><a><img src="images/{{$icon->image}}"></a></td>
+                <td><a href="{{ url('profile'.$icon->follower_id) }}"><img src="images/{{$icon->image}}"></a></td>
             </tr>
             @endforeach
         </table>
@@ -26,7 +26,7 @@
             </tr>
             @foreach ($tweets as $tweet)
             <tr>
-                <td><a><img src="images/{{$tweet->image}}"></a></td>
+                <td><a href="{{ url('profile'.$tweet->follower_id) }}"><img src="images/{{$tweet->image}}"></a></td>
                 <td>{{ $tweet->username }}</td>
                 <td>{{ $tweet->post }}</td>
                 <td>{{ $tweet->updated_at }}</td>

@@ -10,8 +10,17 @@ use App\User;
 class UsersController extends Controller
 {
     //
-    public function profile(){
-        return view('users.profile');
+    public function profile(Request $request,$id){
+      // dd($id);
+
+      $profiles = DB::table('users')
+    ->where('users.id',$id)
+    ->select('users.id','users.username','users.bio','users.image')
+    ->get();
+
+    // dd($profiles);
+
+    return view('users.profile')->with('profiles',$profiles);
     }
 
     public function logout(){
