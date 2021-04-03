@@ -11,16 +11,27 @@ class UsersController extends Controller
 {
     //
     public function profile(Request $request,$id){
-      // dd($id);
 
       $profiles = DB::table('users')
     ->where('users.id',$id)
     ->select('users.id','users.username','users.bio','users.image')
     ->get();
 
+    $tweets = DB::table('users')
+    ->Join('posts','posts.user_id','=','users.id')
+    ->where('users.id',$id)
+    ->select('users.id','users.username','users.image','posts.user_id','posts.post','posts.updated_at')
+    ->orderBy('posts.updated_at','asc')
+    ->get();
+
+
+
     // dd($profiles);
 
-    return view('users.profile')->with('profiles',$profiles);
+    return view('users.profile')->with([
+      'profiles' => $profiles,
+      'tweets' => $tweets,
+    ]);
     }
 
     public function logout(){

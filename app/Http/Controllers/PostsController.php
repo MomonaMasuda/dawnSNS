@@ -44,10 +44,19 @@ class PostsController extends Controller
     }
 
     public function index(){
-        $list = \DB::table('posts')->orderBy('posts.created_at','desc')
-        ->get();
-        // dd($list);
-        return view('posts.index',['list'=>$list]);
+      $id = Auth::id();
+      // dd($id);
+
+      $lists = \DB::table('users')
+    ->Join('posts','posts.user_id','=','users.id')
+    ->Join('follows','follows.follow_id','=','users.id')
+    ->select('users.id','users.username','users.image','posts.id','posts.user_id','posts.post','posts.updated_at','follows.follow_id')
+    ->orderBy('posts.updated_at','desc')
+    ->get();
+      // dd($lists);
+      return view('posts.index')->with([
+        'list' => $lists,
+      ]);
     }
 
     public function create(Request $request)
@@ -58,9 +67,20 @@ class PostsController extends Controller
          'user_id' => $user_id,
          'post' => $post,
      ]);
-     $post = save();
+     $post->save();
 
-     return redirect('posts.create');
+     return redirect('top');
     }
+
+    public function delete($id)
+    {
+      // dd($id);
+        \DB::table('posts')
+            ->where('id', $id)
+            ->delete();
+
+        return redirect('top');
+    }
+
 
 }

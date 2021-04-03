@@ -13,16 +13,14 @@
 
 <div class="container">
         <table class='table table-hover'>
-            <tr>
-                <th>投稿No</th>
-                <th>投稿内容</th>
-                <th>投稿日時</th>
-            </tr>
             @foreach ($list as $list)
             <tr>
-                <td>{{ $list->id }}</td>
+                <td><a href="{{ url('profile'.$list->follow_id) }}"><img src="images/{{$list->image}}"></a></td>
+                <td>{{ $list->username }}</td>
                 <td>{{ $list->post }}</td>
-                <td>{{ $list->created_at }}</td>
+                <td>{{ $list->updated_at }}</td>
+                <td><a href="/{{$list->id}}/update"><img src="images/edit.png"></a></td>
+                <td><a href="/{{$list->id}}/delete" onclick="return confirm('このつぶやきを削除します。よろしいでしょうか？')"><img src="images/trash.png" onmouseover="this.src='images/trash_h.png'" onmouseout="this.src='images/trash.png'"></a></td>
             </tr>
             @endforeach
         </table>
