@@ -1,6 +1,24 @@
 @extends('layouts.login')
 
 @section('content')
+
+<script>
+window.onload = function() {
+$('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) //モーダルを呼び出すときに使われたボタンを取得
+  var recipient = button.data('whatever') //data-whatever の値を取得
+
+  //Ajaxの処理はここに
+
+  var modal = $(this)  //モーダルを取得
+  modal.find('.modal-title').text('New message to ' + recipient) //モーダルのタイトルに値を表示
+  modal.find('.modal-body input#recipient-name').val(recipient) //inputタグにも表示
+  var formmodel = document.getElementById('formmodel');
+//formmodel.innerHTML = "かきかえました<div class=" + recipient +"></div>";
+})
+}
+</script>
+
 <div class="container">
         {!! Form::open(['url' => 'top']) !!}
         <div class="form-group">
@@ -19,11 +37,41 @@
                 <td>{{ $list->username }}</td>
                 <td>{{ $list->post }}</td>
                 <td>{{ $list->updated_at }}</td>
-                <td><a href="/{{$list->id}}/update"><img src="images/edit.png"></a></td>
+
+                @if(Auth::id() == $list->user_id)
+
+                <td>
+                <button type="button" class="update" data-toggle="modal" data-target="#exampleModal" data-whatever="{{$list->post}}"><img src="images/edit.png"></button>
+
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                          <div class="form-group">
+                            <label for="recipient-name" class="control-label">Recipient:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="update"><a href="/{{$list->id}}/update"><img src="images/edit.png"></a></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
                 <td><a href="/{{$list->id}}/delete" onclick="return confirm('このつぶやきを削除します。よろしいでしょうか？')"><img src="images/trash.png" onmouseover="this.src='images/trash_h.png'" onmouseout="this.src='images/trash.png'"></a></td>
+                @endif
             </tr>
             @endforeach
         </table>
     </div>
+
+
 
 @endsection

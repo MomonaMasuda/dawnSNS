@@ -102,6 +102,10 @@ li a:hover{
   color: #fff;
 }
 
+button{
+  border: none;
+}
+
 textarea{
   width: 70%;
   resize: none;

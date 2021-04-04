@@ -61,13 +61,20 @@ class PostsController extends Controller
 
     public function create(Request $request)
     {
-     $user_id = Auth::id();
-     $post = $request->input('newPost');
-     \DB::table('posts')->insert([
-         'user_id' => $user_id,
-         'post' => $post,
+     // $user_id = Auth::id();
+     // $post = $request->input('newPost');
+     // \DB::table('posts')->insert([
+     //     'user_id' => $user_id,
+     //     'post' => $post,
+     // ]);
+     // $post->save();
+
+     $post = new Post;
+     // dd($post);
+     $post->create([
+       'user_id' => Auth::id(),
+       'post' => $request->newPost,
      ]);
-     $post->save();
 
      return redirect('top');
     }
@@ -78,6 +85,19 @@ class PostsController extends Controller
         \DB::table('posts')
             ->where('id', $id)
             ->delete();
+
+        return redirect('top');
+    }
+
+    public function update(Request $request)
+    {
+      dd($request);
+      $up_post = new Post;
+      \DB::table('posts')
+            ->where('id', $id)
+            ->update(
+                ['post' => $up_post]
+            );
 
         return redirect('top');
     }

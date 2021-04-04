@@ -2,6 +2,11 @@
 
 @section('content')
 
-posts
+<div class="container">
+        <table class='table table-hover'>
+            <tr>
+            </tr>
+        </table>
+    </div>
 
 @endsection
