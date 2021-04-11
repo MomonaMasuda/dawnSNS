@@ -89,15 +89,18 @@ class PostsController extends Controller
         return redirect('top');
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-      dd($request);
-      $up_post = new Post;
-      \DB::table('posts')
-            ->where('id', $id)
-            ->update(
-                ['post' => $up_post]
-            );
+       $post = Post::find($id);
+       // dd($post);
+       $post->post = $request->post;
+       // dd($post);
+       $post->save();
+      // \DB::table('posts')
+      //       ->where('id', $id)
+      //       ->update(
+      //           ['post' => $up_post]
+      //       );
 
         return redirect('top');
     }

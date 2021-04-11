@@ -53,8 +53,8 @@ $('#exampleModal').on('show.bs.modal', function (event) {
                       <div class="modal-body">
                         <form>
                           <div class="form-group">
-                            <label for="recipient-name" class="control-label">Recipient:</label>
-                            <input type="text" class="form-control" id="recipient-name">
+                            <label for="recipient-name" class="control-label">Tweet</label>
+                            <input type="text" class="form-control" id="recipient-name" maxLength="150">
                           </div>
                         </form>
                       </div>
