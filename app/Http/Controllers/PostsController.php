@@ -15,6 +15,20 @@ class PostsController extends Controller
         return view('posts.profile');
     }
 
+    public function profile_update(Request $request){
+      // dd($request->all());
+
+      $id = $request->input('id');
+      $up_user = $request->input('upUser');
+        \DB::table('users')
+            ->where('id', $id)
+            ->update(
+                ['username' => $up_user]
+            );
+
+        return redirect('/profile_edit');
+    }
+
     public function followerList(){
       $user_id = Auth::id();
 
@@ -89,13 +103,19 @@ class PostsController extends Controller
         return redirect('top');
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-       $post = Post::find($id);
-       // dd($post);
+      dd($request->all());
+
+       // $post = Post::find($id);
+
+       // $request_post = $request->all();
+       // $request_post = $post;
        $post->post = $request->post;
        // dd($post);
        $post->save();
+
+
       // \DB::table('posts')
       //       ->where('id', $id)
       //       ->update(

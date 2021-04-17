@@ -12,7 +12,7 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 
   var modal = $(this)  //モーダルを取得
   modal.find('.modal-title').text('New message to ' + recipient) //モーダルのタイトルに値を表示
-  modal.find('.modal-body input#recipient-name').val(recipient) //inputタグにも表示
+  modal.find('.modal-body input#post').val(recipient) //inputタグにも表示
   var formmodel = document.getElementById('formmodel');
 //formmodel.innerHTML = "かきかえました<div class=" + recipient +"></div>";
 })
@@ -51,15 +51,16 @@ $('#exampleModal').on('show.bs.modal', function (event) {
 
                       </div>
                       <div class="modal-body">
-                        <form>
+                        <form method="POST" action="post/update">
                           <div class="form-group">
-                            <label for="recipient-name" class="control-label">Tweet</label>
-                            <input type="text" class="form-control" id="recipient-name" maxLength="150">
+                            <label for="post" class="control-label">Tweet</label>
+                            <input type="text" class="form-control" id="post" maxLength="150" >
+                            <input id="id" class="form-control" type="hidden" name="id" value="">
                           </div>
                         </form>
                       </div>
                       <div class="modal-footer">
-                        <button type="button" class="update"><a href="/{{$list->id}}/update"><img src="images/edit.png"></a></button>
+                        <button type="button" class="update"><img src="images/edit.png"></button>
                       </div>
                     </div>
                   </div>
