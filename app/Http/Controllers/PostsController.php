@@ -15,15 +15,21 @@ class PostsController extends Controller
         return view('posts.profile');
     }
 
-    public function profile_update(Request $request){
+    public function profile_update(Request $request)
+    {
+      $id = Auth::id();
+      // dd($id);
       // dd($request->all());
-
-      $id = $request->input('id');
-      $up_user = $request->input('upUser');
+      $up_user = $request->input('username');
+      $up_mail = $request->input('mail');
+      $up_password = bcrypt($request->input('password'));
+      $up_bio = $request->input('bio');
+      $up_image = $request->file('image')->store('images', "public");
+      // dd($up_image);
         \DB::table('users')
             ->where('id', $id)
             ->update(
-                ['username' => $up_user]
+                ['username' => $up_user,'mail' => $up_mail,'password' => $up_password,'bio' => $up_bio,'image' => $up_image]
             );
 
         return redirect('/profile_edit');
@@ -104,26 +110,16 @@ class PostsController extends Controller
     }
 
     public function update(Request $request)
-    {
-      dd($request->all());
-
-       // $post = Post::find($id);
-
-       // $request_post = $request->all();
-       // $request_post = $post;
-       $post->post = $request->post;
-       // dd($post);
-       $post->save();
-
-
-      // \DB::table('posts')
-      //       ->where('id', $id)
-      //       ->update(
-      //           ['post' => $up_post]
-      //       );
-
-        return redirect('top');
-    }
+{
+    $id = $request->input('id');
+    $post = $request->input('post');
+    \DB::table('posts')
+    ->where('id', $id)
+    ->update([
+      'post' => $post
+    ]);
+    return redirect('top');
+}
 
 
 }

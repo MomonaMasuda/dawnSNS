@@ -46,11 +46,11 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::get('{id}/delete','PostsController@delete');
 
-    Route::get('post/update','PostsController@update');
+    Route::post('post/update','PostsController@update');
 
     Route::get('/profile_edit','PostsController@profile');
     Route::post('/profile_update','PostsController@profile_update');
-    
+
     Route::get('profile{id}','UsersController@profile');
 
     Route::get('/search','UsersController@search');

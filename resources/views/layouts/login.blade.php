@@ -30,7 +30,7 @@
             <div id="pulldawn">
                 <div id="menu">
                     <p>{{Auth::user()->username}}さん</p>
-                    <img src="images/{{Auth::user()->image}}">
+                    <img src="{{ asset('storage/' .Auth::user()->image) }}">
                 </div>
                 <ul>
                     <li><a href="/top">ホーム</a></li>
