@@ -2,13 +2,14 @@
 
 @section('content')
 <form class="username" action="{{url('/result')}}" method="get">
-  <p><input type="text" name="keyword" placeholder="ユーザー名" value="{{isset($keyword)}}"></p>
+  <p><input type="text" name="keyword" placeholder="ユーザー名" value=""></p>
 <button type="submit" class="btn-create"></button>
+
+<p>検索ワード：{{$keyword}}</p>
 </form>
 
 @if($users->count())
 
-<h1>ユーザー一覧</h1>
 <table class="table">
   <tr>
     <th>画像</th>
@@ -16,7 +17,7 @@
   </tr>
 @foreach($users as $user)
   <tr>
-    <td>{{$user->image}}</td>
+    <td><a href="{{ url('profile'.$user->id) }}"><img src="{{ asset('storage/' .$user->image) }}" width="50" height="50"></a></td>
     <td>{{$user->username}}</td>
 
     <td>

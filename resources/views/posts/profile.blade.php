@@ -6,7 +6,7 @@
   {{ csrf_field() }}
 <div class="container">
         <table class='table table-hover'>
-            <img src="{{ asset('storage/' .Auth::user()->image) }}">
+            <img src="{{ asset('storage/' .Auth::user()->image) }}" width="50" height="50">
             <!-- <img src="../storage/UHT4yZtCFPNdhvvUX9HkGaUgxgZxtjuCpHtunlma.png"> -->
             <tr>
             <th>UserName</th>

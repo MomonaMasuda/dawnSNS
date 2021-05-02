@@ -5,7 +5,7 @@
 <div class="container">
   <table class='table table-hover'>
     @foreach ($profiles as $profile)
-      <a><img src="images/dawn.png"></a>
+      <a><img src="{{ asset('storage/' .$profile->image) }}" width="50" height="50"></a>
       <p>Name</p>
       <p>{{$profile->username}}</p>
       <p>bio</p>
@@ -35,7 +35,7 @@
 
             @foreach ($tweets as $tweet)
             <tr>
-                <td><a href=""><img src="images/{{$tweet->image}}"></a></td>
+                <td><a href=""><img src="{{ asset('storage/' .$tweet->image) }}" width="50" height="50"></a></td>
                 <td>{{ $tweet->username }}</td>
                 <td>{{ $tweet->post }}</td>
                 <td>{{ $tweet->updated_at }}</td>

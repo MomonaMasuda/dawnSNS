@@ -30,7 +30,7 @@ window.onload = function() {
         <table class='table table-hover'>
             @foreach ($list as $list)
             <tr>
-                <td><a href="{{ url('profile'.$list->follow_id) }}"><img src="{{ asset('storage/' .$list->image) }}"></a></td>
+                <td><a href="{{ url('profile'.$list->follow_id) }}"><img src="{{ asset('storage/' .$list->image) }}" width="50" height="50"></a></td>
                 <td>{{ $list->username }}</td>
                 <td>{{ $list->post }}</td>
                 <td>{{ $list->updated_at }}</td>

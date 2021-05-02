@@ -30,7 +30,7 @@
             <div id="pulldawn">
                 <div id="menu">
                     <p>{{Auth::user()->username}}さん</p>
-                    <img src="{{ asset('storage/' .Auth::user()->image) }}">
+                    <img src="{{ asset('storage/' .Auth::user()->image) }}" width="50" height="50" >
                 </div>
                 <ul>
                     <li><a href="/top">ホーム</a></li>
@@ -49,12 +49,34 @@
                 <p>{{Auth::user()->username}}さんの</p>
                 <div>
                 <p>フォロー数</p>
-                <p>名</p>
+                <p>
+                <?php
+                $id = Auth::id();
+
+                $follow_counts = \DB::table('follows')
+                ->where('follower_id',$id)
+                ->select(DB::raw('COUNT(*) as count'))
+                ->get();
+                ?>
+                @foreach ($follow_counts as $follow_count)
+                {{$follow_count->count}}名</p>
+                @endforeach
                 </div>
                 <p class="btn"><a href="/followlist">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
-                <p>〇〇名</p>
+                <p>
+                <?php
+                $id = Auth::id();
+
+                $follower_counts = \DB::table('follows')
+                ->where('follow_id',$id)
+                ->select(DB::raw('COUNT(*) as count'))
+                ->get();
+                ?>
+                @foreach ($follower_counts as $follower_count)
+                {{$follower_count->count}}名</p>
+                @endforeach
                 </div>
                 <p class="btn"><a href="/followerlist">フォロワーリスト</a></p>
             </div>
