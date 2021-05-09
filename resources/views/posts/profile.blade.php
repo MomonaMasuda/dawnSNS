@@ -18,15 +18,15 @@
             </tr>
             <tr>
             <th>Password</th>
-            <td><input type="password" class="form-control" id="recipient-name" value="" name="old_password" required autofocus></td>
+            <td><input type="password" class="form-control" id="recipient-name" value="" name="old_password"></td>
             </tr>
             <tr>
             <th>new Password</th>
-            <td><input type="password" class="form-control" id="recipient-name" value="" name="password" required></td>
+            <td><input type="password" class="form-control" id="recipient-name" value="" name="password"></td>
             </tr>
             <tr>
             <th>new Password(確認用)</th>
-            <td><input type="password" class="form-control" id="recipient-name" value="" name="password_confirmation" required></td>
+            <td><input type="password" class="form-control" id="recipient-name" value="" name="password_confirmation"></td>
             </tr>
             <tr>
             <th>Bio</th>

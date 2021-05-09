@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateUserRequest;
 
 
 class RegisterController extends Controller
@@ -49,14 +50,15 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'username' => 'required|string|min:4|max:12',
-            'mail' => 'required|string|email|min:4|max:12|unique:users',
-            'password' => 'required|string|min:4|max:12|confirmed|unique:users|alpha_num',
-        ]);
-    }
+    // protected function validator(array $data)
+    // {
+    //     return Validator::make($data, [
+    //         'username' => 'required|string|min:4|max:12',
+    //         'mail' => 'required|string|email|min:4|max:12|unique:users',
+    //         'password' => 'required|string|min:4|max:12|confirmed|unique:users|alpha_num',
+    //         'password-confirm' => 'required|string|min:4|max:12|confirmed|unique:users|alpha_num|same:password',
+    //     ]);
+    // }
 
     /**
      * Create a new user instance after a valid registration.
@@ -66,6 +68,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+      // dd($data);
+
         return User::create([
             'username' => $data['username'],
             'mail' => $data['mail'],
@@ -78,17 +82,17 @@ class RegisterController extends Controller
     //     return view("auth.register");
     // }
 
-    public function register(Request $request){
-        if($request->isMethod('post')){
-            $data = $request->input();
-            // dd($data);
-            $this->create($data);
-            return view('auth.added',compact('data'));
-        }
+    public function register(){
+
         return view('auth.register');
     }
 
-    public function added(){
-        return view('auth.added');
+    public function added(CreateUserRequest $request){
+      $request->isMethod('post');
+          $data = $request->input();
+          // dd($data);
+          $this->create($data);
+          return view('auth.added',compact('data'));
     }
+
 }

@@ -2,14 +2,24 @@
 
 @section('content')
 
-{!! Form::open() !!}
+{!! Form::open(['url' => '/added']) !!}
 
 <div class="login-cont">
 
 <p>新規ユーザー登録</p>
+@if ($errors->any())
+	    <div class="alert alert-danger">
+	        <ul>
+	            @foreach ($errors->all() as $error)
+	                <li>{{ $error }}</li>
+	            @endforeach
+	        </ul>
+	    </div>
+	@endif
 
     <div class="login-form">
         <p class="text">
+
             {{ Form::label('ユーザー名') }}
             <br>
             {{ Form::text('username',null,['class' => 'input']) }}
@@ -24,8 +34,9 @@
             <br>
             {{ Form::label('パスワード確認') }}
             <br>
-            {{ Form::password('password-confirm',null,['class' => 'input']) }}
+            {{ Form::password('password_confirmation',null,['class' => 'input']) }}
         </p>
+
     </div>
 
 {{ Form::submit('登録') }}

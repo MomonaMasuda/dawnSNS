@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use App\Post;
+use App\Http\Requests\UpdateUserRequest;
 
 class PostsController extends Controller
 {
@@ -15,8 +16,17 @@ class PostsController extends Controller
         return view('posts.profile');
     }
 
-    public function profile_update(Request $request)
+    public function profile_update(UpdateUserRequest $request)
     {
+      // $validator = Validator::make($request, [
+      //       'username'   => ['string', 'max:12','min:4'],
+      //       'mail'          => ['string', 'max:12','min:4',Rule::unique('users')->ignore($user->id)],
+      //       'password' => ['password', 'required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+      //       'bio'         => ['string','max:200'],
+      //       'image' => ['file', 'image', 'mimes:jpeg,png,jpg,bmp,gif,svg', 'max:2048']
+      //   ]);
+      //   $validator->validate();
+
       $id = Auth::id();
       // dd($id);
       // dd($request->all());
