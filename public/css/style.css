@@ -182,3 +182,19 @@ textarea{
   padding: 8px 8px 8px 8px;
   border-radius: 4px;
 }
+
+.alert-danger ul{
+  display: inline;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  background: none;
+}
+
+.alert-danger li{
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  background: none;
+}

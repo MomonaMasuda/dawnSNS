@@ -8,6 +8,15 @@
         <table class='table table-hover'>
             <img src="{{ asset('storage/' .Auth::user()->image) }}" width="50" height="50">
             <!-- <img src="../storage/UHT4yZtCFPNdhvvUX9HkGaUgxgZxtjuCpHtunlma.png"> -->
+            @if ($errors->any())
+            	    <div class="alert alert-danger">
+            	        <ul>
+            	            @foreach ($errors->all() as $error)
+            	                <li>{{ $error }}</li>
+            	            @endforeach
+            	        </ul>
+            	    </div>
+            	@endif
             <tr>
             <th>UserName</th>
             <td><input type="text" class="form-control" id="recipient-name" value="{{ Auth::user()->username}}" name="username"></td>
@@ -30,7 +39,7 @@
             </tr>
             <tr>
             <th>Bio</th>
-            <td><input type="text" class="form-control" id="recipient-name" value="{{ Auth::user()->bio}}" name="bio"></td>
+            <td><textarea type="text" class="form-control" id="recipient-name" value="{{ Auth::user()->bio}}" name="bio"></textarea></td>
             </tr>
             <tr>
             <th>Icon Image</th>
