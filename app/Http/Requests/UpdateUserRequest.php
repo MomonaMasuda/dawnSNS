@@ -22,16 +22,17 @@ class UpdateUserRequest extends FormRequest
      *
      * @return array
      */
+
     public function rules()
     {
       return [
         'username' => 'required|string|min:4|max:12',
         'mail' => 'required|string|email|min:4|max:30|unique:users,mail,'.Auth::user()->mail.',mail',
         'old_password' => 'required|string|min:4|max:12|alpha_num',
-        'password' => 'required|string|min:4|max:12|alpha_num|different:password_confirmation|confirmed',
+        'password' => 'required|string|min:4|max:12|alpha_num|different:old_password|confirmed',
         'password_confirmation' => 'required|string|min:4|max:12|alpha_num',
         'bio' => 'max:200',
-        'image' => 'image',
+        'image' => ['image','regex:/^[a-zA-Z0-9._]+$/'],
       ];
     }
 
@@ -69,6 +70,7 @@ class UpdateUserRequest extends FormRequest
           'bio.max' => 'Bio欄は200文字以下で入力して下さい',
 
           'image.image' => '画像ファイルを選択して下さい',
+          'image.regex' => '英数字のみで入力して下さい',
         ];
     }
 }

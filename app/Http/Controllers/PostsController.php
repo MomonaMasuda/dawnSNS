@@ -79,7 +79,7 @@ class PostsController extends Controller
 
       $lists = \DB::table('users')
     ->Join('posts','posts.user_id','=','users.id')
-    ->Join('follows','follows.follow_id','=','users.id')
+    ->leftJoin('follows','follows.follow_id','=','users.id')
     ->select('users.id','users.username','users.image','posts.id','posts.user_id','posts.post','posts.updated_at','follows.follow_id')
     ->orderBy('posts.updated_at','desc')
     ->get();

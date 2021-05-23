@@ -14,13 +14,24 @@ header{
     display: flex;
     flex-flow: row wrap;
 }
+.form-group{
+  width: 50%;
+}
+
 #container{
-    flex: 0 0 80%;
+    /* flex: 0 0 80%; */
+    float:left;
+    width: 80%;
+}
+
+.container table{
+    width: 80%;
 }
 
 #side-bar{
     flex: 0 0 19%;
     border-left: 1px solid #6C6C6C;
+    float: right;
 }
 
 ul {
@@ -60,7 +71,7 @@ li a:hover{
 
 #menu p{
   display: inline-block;
-  width: 70px;
+  width: 50%;
 }
 
 #menu::after{
