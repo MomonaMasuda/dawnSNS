@@ -1,5 +1,9 @@
 @chasert "utf-8";
 
+*{
+
+}
+
 html{
 }
 
@@ -9,7 +13,7 @@ header{
 }
 
 body{
-    /* height: 100%; */
+    height: 100%;
     background:-webkit-linear-gradient(top,#3C4767 60%, #BB5346);
     color: #fff;
     text-align: center;
@@ -19,8 +23,8 @@ a{
   color: #fff;
 }
 
-#container{
-
+p{
+  padding-bottom: 10%;
 }
 
 .login-cont{
@@ -28,13 +32,11 @@ a{
   width: 50%;
   /* height: 100%; */
   margin: auto;
-  margin-top: 10%;
   margin-bottom: 10%;
 }
 
 .login-cont p{
-  padding-top: 10%;
-  padding-bottom: 10%;
+  margin-bottom: 10%;
 }
 
 .login-form{

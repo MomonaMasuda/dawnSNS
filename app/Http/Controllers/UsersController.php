@@ -57,7 +57,6 @@ class UsersController extends Controller
   {
     $users = $query->where('username','like','%'.$keyword.'%')->get();
   }
-
   return view('users.result',compact('users','keyword'));
   }
 
