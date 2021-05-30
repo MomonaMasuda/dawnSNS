@@ -2,8 +2,8 @@
 
 @section('content')
 
+<div class="login-cont">
 <div id="clear">
-    <div class="login-cont">
     <p> {{$data['username']}}さん、</p>
     <p>ようこそ！DAWNSNSへ！</p>
     <p>ユーザー登録が完了しました。</p>

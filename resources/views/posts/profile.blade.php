@@ -43,7 +43,7 @@
             </tr>
             <tr>
             <th>Icon Image</th>
-            <td><input type="file" class="form-control" id="recipient-name" value="{{ Auth::user()->image}}" name="image" accept=""></td>
+            <td><input type="file" class="form-control" id="recipient-name" value="{{ Auth::user()->image}}" name="image"></td>
             </tr>
 
             <td><button type="submit" class="btn-update">更新</button></td>

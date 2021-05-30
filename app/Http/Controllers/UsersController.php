@@ -56,7 +56,10 @@ class UsersController extends Controller
   if(!empty($keyword))
   {
     $users = $query->where('username','like','%'.$keyword.'%')->get();
+  }else{
+     $users = User::all();
   }
+
   return view('users.result',compact('users','keyword'));
   }
 

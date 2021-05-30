@@ -9,12 +9,12 @@ html{
 
 header{
     font-size: 150%;
-    padding-top: 10%;
 }
 
 body{
     height: 100%;
     background:-webkit-linear-gradient(top,#3C4767 60%, #BB5346);
+    /* background:#3C4767; */
     color: #fff;
     text-align: center;
 }
@@ -24,7 +24,7 @@ a{
 }
 
 p{
-  padding-bottom: 10%;
+  padding: 5%;
 }
 
 .login-cont{
@@ -32,11 +32,10 @@ p{
   width: 50%;
   /* height: 100%; */
   margin: auto;
-  margin-bottom: 10%;
+  margin-bottom: 20%;
 }
 
 .login-cont p{
-  margin-bottom: 10%;
 }
 
 .login-form{
@@ -60,4 +59,5 @@ p{
   text-decoration: none;
   padding: 8px 8px 8px 8px;
   border-radius: 4px;
+  margin-bottom: 10%;
 }

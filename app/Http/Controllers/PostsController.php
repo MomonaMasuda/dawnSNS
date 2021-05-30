@@ -29,12 +29,16 @@ class PostsController extends Controller
 
       $id = Auth::id();
       // dd($id);
-      // dd($request->all());
+      dd($request->all());
       $up_user = $request->input('username');
       $up_mail = $request->input('mail');
       $up_password = bcrypt($request->input('password'));
       $up_bio = $request->input('bio');
-      $up_image = $request->file('image')->store('images', "public");
+      if($request->input('image')){
+        $up_image = $request->file('image')->store('images', 'public');
+      }else{
+        $up_image = Auth::user()->image;
+      };
       // dd($up_image);
         \DB::table('users')
             ->where('id', $id)
@@ -80,7 +84,9 @@ class PostsController extends Controller
       $lists = \DB::table('users')
     ->Join('posts','posts.user_id','=','users.id')
     ->leftJoin('follows','follows.follow_id','=','users.id')
-    ->select('users.id','users.username','users.image','posts.id','posts.user_id','posts.post','posts.updated_at','follows.follow_id')
+    ->select('users.id','users.username','users.image','posts.id','posts.user_id','posts.post','posts.updated_at','follows.follow_id','follows.follower_id')
+    ->where('follows.follower_id',$id)
+    ->orWhere('users.id',$id)
     ->orderBy('posts.updated_at','desc')
     ->get();
       // dd($lists);

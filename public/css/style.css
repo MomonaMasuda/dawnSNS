@@ -194,6 +194,10 @@ textarea{
   border-radius: 4px;
 }
 
+.alert-danger{
+  width: 80%;
+}
+
 .alert-danger ul{
   display: inline;
   margin: 0px;

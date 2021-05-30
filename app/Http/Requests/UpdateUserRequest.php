@@ -32,7 +32,7 @@ class UpdateUserRequest extends FormRequest
         'password' => 'required|string|min:4|max:12|alpha_num|different:old_password|confirmed',
         'password_confirmation' => 'required|string|min:4|max:12|alpha_num',
         'bio' => 'max:200',
-        'image' => ['image'],
+        'image' => 'image',
       ];
     }
 
@@ -70,7 +70,6 @@ class UpdateUserRequest extends FormRequest
           'bio.max' => 'Bio欄は200文字以下で入力して下さい',
 
           'image.image' => '画像ファイルを選択して下さい',
-          'image.' => '英数字のみで入力して下さい',
         ];
     }
 }

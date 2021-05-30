@@ -24,6 +24,7 @@
 
             <button type="submit" class="btn-delete">フォロー解除</button>
         </form>
+    @elseif(Auth::id() == $user->id)
     @else
         <form action="{{ route('follow', ['id' => $user->id]) }}" method="POST">
             {{ csrf_field() }}
@@ -33,6 +34,7 @@
       @endif
         </td>
   </tr>
+
 @endforeach
 </table>
 
